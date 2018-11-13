@@ -9,6 +9,7 @@ namespace CrapoDeeds.Controllers
 {
     public class HomeController : Controller
     {
+        //Index/Home page
         public ActionResult Index()
         {
             return View();

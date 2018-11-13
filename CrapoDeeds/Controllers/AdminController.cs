@@ -7,6 +7,9 @@ using CrapoDeeds.Models;
 
 namespace CrapoDeeds.Controllers
 {
+    //Admin Controller that handles all things administration which include
+    //Showing the Dashboard
+    //Creating Viewing and Managing Clients, Cases, And Tasks
     public class AdminController : Controller
     {
         public static int taskCount = 1;
@@ -16,10 +19,12 @@ namespace CrapoDeeds.Controllers
         {
             return View ();
         }
+        //Show Tasks Create View
         public ActionResult Tasks()
         {
             return View();
         }
+        //Add Items to Tasks and return view to show them
         public ActionResult ViewTasks()
         {
             List<Task> tasks = new List<Task>();
@@ -39,10 +44,12 @@ namespace CrapoDeeds.Controllers
 
             return View(tasks.AsEnumerable());
         }
+        //Show Add Client View
         public ActionResult AddClient()
         {
             return View();
         }
+        //Add Clients and show them
         public ActionResult Clients()
         {
             List<Client> clients = new List<Client>();
@@ -58,10 +65,12 @@ namespace CrapoDeeds.Controllers
             }
             return View(clients.AsEnumerable());
         }
+        //Create Case View
         public ActionResult AddCase()
         {
             return View();
         }
+        //Add Cases to List and pass them to view to display
         public ActionResult Cases()
         {
             List<Case> cases = new List<Case>();
