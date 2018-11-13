@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CrapoDeeds.Models.Case>
+
+@{
+    ViewBag.Title = "Cases";
+}
+
+<h2 class="is-size-3">Cases</h2>
+
+<p>
+    @Html.ActionLink("Add Case", "AddCase")
+</p>
+<table class="table is-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.client.clientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.caseDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.client.clientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.caseDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.caseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.caseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.caseID })
+        </td>
+    </tr>
+}
+
+</table>

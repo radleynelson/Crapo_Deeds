@@ -1,0 +1,75 @@
+﻿@model CrapoDeeds.Models.Task
+
+@{
+    ViewBag.Title = "Tasks";
+}
+
+<h2 class="is-size-3">Tasks</h2>
+
+
+<div style="min-width: 300px; margin: auto; max-width: 500px" class="box">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Task</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "help is-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.taskOwner, htmlAttributes: new { @class = "label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.taskOwner, new { htmlAttributes = new { @class = "control" } })
+                    @Html.ValidationMessageFor(model => model.taskOwner, "", new { @class = "help is-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.taskDescription, htmlAttributes: new { @class = "label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.taskDescription, new { htmlAttributes = new { @class = "control" } })
+                    @Html.ValidationMessageFor(model => model.taskDescription, "", new { @class = "help is-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.createdDate, htmlAttributes: new { @class = "label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.createdDate, new { htmlAttributes = new { @class = "control" } })
+                    @Html.ValidationMessageFor(model => model.createdDate, "", new { @class = "help is-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.dueDate, htmlAttributes: new { @class = "label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.dueDate, new { htmlAttributes = new { @class = "control" } })
+                    @Html.ValidationMessageFor(model => model.dueDate, "", new { @class = "help is-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Case, htmlAttributes: new { @class = "label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Case, new { htmlAttributes = new { @class = "control" } })
+                    @Html.ValidationMessageFor(model => model.Case, "", new { @class = "help is-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add Task" class="button is-link" />
+                </div>
+            </div>
+            <br />
+        </div>
+    }
+
+<div>
+    @Html.ActionLink("Back to List", "ViewTasks")
+</div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,50 @@
+﻿@model CrapoDeeds.Models.Client
+
+@{
+    ViewBag.Title = "Add Client";
+}
+
+<h2 class="is-size-2">AddClient</h2>
+
+
+<div style="min-width: 300px; margin: auto; max-width: 500px" class="box">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Client</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "help is-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.clientName, htmlAttributes: new { @class = "label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.clientName, new { htmlAttributes = new { @class = "control" } })
+                    @Html.ValidationMessageFor(model => model.clientName, "", new { @class = "help is-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.companyAddress, htmlAttributes: new { @class = "label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.companyAddress, new { htmlAttributes = new { @class = "control" } })
+                    @Html.ValidationMessageFor(model => model.companyAddress, "", new { @class = "help is-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="button is-link" />
+                </div>
+            </div>
+        </div>
+    }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
